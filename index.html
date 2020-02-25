@@ -41,7 +41,20 @@ blah, blah, blah, blah
 	   <link rel="stylesheet" href="w3-colors-flat.css">
   
 	   </head> 
+<script>
+	   
+// The following code lets you know when the file was last modified.
+// This will help you know if you are looking at the new version of the file or if there is a delay on GitHub.
+       
+	var docMod = document.lastModified;
+       
+	alert("This file last modified  " + docMod);
+       
+	console.log("This file last modified  " + docMod);
+	
+//If you find the alert box annoying, comment out that line and timestamp will still show up in the debugging console
 
+</script>
 
 <script>
        
@@ -115,6 +128,7 @@ img, object{
 	
 <div id="content" class="w3-container">
 	
+	
 	<p>Do you you want to check if you have lime disease or strepthroat? Answer a few short questions to find out!</p>
 	
 	<a href="#two" class="w3-btn w3-blue w3-round"> Go to page two </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
@@ -127,26 +141,15 @@ img, object{
 			alt="Person" style="width:50%">
       
     </div>
- 
-	</div>
-  <br>
 	
-
-
 	<div class="w3-card" style="width:50%">
   
 		<img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/327/327104/an-infographic-for-chronic-lyme-disease.jpg" 
 	
 		     alt="Person" style="width:50%"
    
-		</div>
-
 	</div>
-  <br>
-	
-	
-	
-	
+
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
@@ -165,7 +168,6 @@ img, object{
 		<p>?</p>   <!--Adds a question to the page.--> 
     	
 	</div>
-</div>
 
 <div class="page" id="two"> <!--Makes another page -->
 	
@@ -189,8 +191,6 @@ img, object{
 			<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#three'">Shortness of Breath</button>
 		
 		</div> <!--Button for sore throat and the shortness of breath-->
-	</div>
-</div>	
 
 <div class="page" id="three"><!--Makes another page -->
 	
@@ -208,9 +208,8 @@ img, object{
 		<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#four'">Rib Soreness</button>
 		
 	</div> <!-- Buttons that input the choices relationship to Lime disease or strep-->
-</div>
 				
-<div class="page" id="four"><!--Makes another page -->
+<div class="page" id="four"> <!--Makes another page -->
 	
 	<div id="header" class="w3-container w3-flat-carrot">
 	
@@ -226,16 +225,15 @@ img, object{
 		<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#five'">Rash</button>
 		
 	</div> <!-- Buttons that input the choices relationship to Lime disease or strep-->
-</div>
 				
 <div class="page" id="five"> <!--Makes another page -->
 	
 	<div id="header" class="w3-container w3-flat-carrot">
 	
 		<h1>Question 4</h1> <!--Changed title to question 4 -->
-	</div>
+</div>
 	
-	<div id="content" class="w3-container">
+<div id="content" class="w3-container">
 		
 		<p>Is your neck stiff or do you have bad breath?</p> <!--changed question to match new website purchase-->
 		
@@ -244,7 +242,6 @@ img, object{
 		<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#six'">Stiff Neck</button>
 		
 	</div> <!--Yes and no buttons that also inputs the choices relationship to allergy and cold-->
-</div>
 	
 <div class="page" id="six"> <!--Makes another page -->
 	
@@ -260,7 +257,6 @@ img, object{
 		<button id="results" class="w3-button w3-blue w3-hover-border-color" onclick="getResults();">Get Results</button> <!--This adds a button that says results and displays the results upon click.-->
 			
 		</div>
-</div>
 	
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	
