@@ -89,6 +89,53 @@ blah, blah, blah, blah
 	
   </script>
 
+	   
+  <script>
+	function rectangle() {
+		var c = document.getElementById ("bc"); 
+		var ctx = c.getContext("2d");
+		ctx.moveTo(10,240);
+		ctx.lineTo(10,10);
+		//this code draws the left line
+		ctx.moveTo(10,10);
+		ctx.lineTo(340,10);
+		//this code draws the top line
+		ctx.moveTo(340,10);
+		ctx.lineTo(340,240);
+		//this code draws the right line
+		ctx.moveTo(340,240);
+		ctx.lineTo(10,240);
+		//this code draws the bottom line
+		ctx.stroke();
+		//comes together to draw a rectangle
+	}
+
+	function text() {
+		var bc = document.getElementById ("bc"); 
+		var bc_context = bc.getContext ("2d"); 
+		bc_context.font = '30px Arial' ;
+		bc_context.textBaseLine = 'bottom'; 
+		bc_context.fillText ('Arthur Williamson' ,60,140);
+		//writes my name 
+	} 
+
+
+	function image() {
+		var c= document.getElementById ("bc"); 
+		var ctx=c.getContext ("2d"); 
+		var img= document.getElementById("virus"); 
+		ctx.drawImage (img,10,10,330,230);
+		//puts an image 
+	} 
+
+
+	function clear_canvas() {
+		var bc = document.getElementById ("bc"); 
+		var bc_context = bc.getContext ("2d"); 
+		bc_context.clearRect(1, 1, 350, 250); 
+		//clears the canvas 
+	} 
+</script>
 
 
 <style>	
@@ -231,6 +278,45 @@ img, object{
 	<!--Buttons for sore throat and the shortness of breath-->
 		
 	<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#two'">Shortness of Breath</button>
+
+	<div>
+	<center><canvas id="bc" width="350" height="250" style= "border :1px solid #000000;"> <!--this code provides a canavas to add things to-->
+	Your browser does not support the HTML5 canvas tag.</canvas></center> <!--this code provides a message if the code does not work-->
+</div>
+	
+<img id="virus" src="https://cdn.hswstatic.com/gif/corona-virus-3D.jpg" alt="The Scream" width="0" height="0"><!--image-->
+	
+<style>
+		.btn-group .button {
+		  background-color: #4169e1; /* blue */
+		  border: 1px solid white;
+		  color: white;
+		  padding: 15px 32px;/*created size of button*/
+		  text-align: center;/*centers button text*/
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;/*font size*/
+		  cursor: pointer;
+		  float: left;/*brings the buttons to the left*/
+		  /*this code serves to give the button its color,border,alignment,size,font size*/
+		}
+
+		.btn-group .button:not(:last-child) {
+		  border-right: none; /* Prevent double borders */
+		}
+
+		.btn-group .button:hover { /*adds hover feature*/
+		  background-color: #0a21cc;/*changes color to dark blue when hovered*/
+		}
+</style>
+	
+	<div class="btn-group">
+		  <button class="button"onclick = "rectangle();return true;" >Rectangle</button> 
+		  <button class="button" onclick = "text();return true;">Name</button>
+		  <button class="button" onclick = "image();return true;">Image</button>
+		<button class="button"onclick = "clear_canvas();return true;">Clear</button>
+		<!--adds 4 buttons to screen-->
+	</div> 
 
 </div> 	
 	
