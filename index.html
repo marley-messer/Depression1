@@ -101,10 +101,30 @@ blah, blah, blah, blah
 
 		var allergyProb = allergy_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of allergy disease  
 
-		
-		resultsHTML.innerHTML = "Corona Probability: "+coronaProb+"<br>Cold Probability: "+coldProb+"<br>Flu Probability: "+fluProb+"<br>Allergy Probability: "+allergyProb;
+		<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var greeting;
+  var time = new Date().getHours();
+  if (coronaProb > coldProb+fluProb+allergyProb) {
+    greeting = "you have corona";
+  } else if (coldProb > coronaProb+fluProb+allergyProb) {
+    greeting = "you have a cold";
+  } else if (fluProb > coronaProb+fluProb+coldProb) {
+    greeting = "you have the flu";
+  }else if (allergyProb > coronaProb+coldProb+allergyProb) {
+    greeting = "you have allergies";
+  }
+  document.getElementById("demo").innerHTML = greeting;
+}
+</script>
+	   
+		<!--resultsHTML.innerHTML = "Corona Probability: "+coronaProb+"<br>Cold Probability: "+coldProb+"<br>Flu Probability: "+fluProb+"<br>Allergy Probability: "+allergyProb;-->
 	
-	} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.
+	<!--} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.-->
 	
   </script>
 
