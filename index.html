@@ -58,32 +58,51 @@ blah, blah, blah, blah
 
 <script>
        
-	var strep_count = 0;//defines the function and represents strep count
+	var corona_count = 0;//defines the function and represents corona count
         
-	var lime_count = 0;//defines the function and represents lime disease count
+	var cold_count = 0;//defines the function and represents cold disease count
+	
+	var flu_count = 0;//defines the function and represents flu disease count
+	
+	var allergy_count = 0;//defines the function and represents allergy disease count
 
 
-        function strepAdd(){
+        function coronaAdd(){
             
-		strep_count = strep_count + 1;//adds one to the strep count
+		corona_count = corona_count + 1;//adds one to the corona count
 		//alert(allergy_count);
 
         }
 
-        function limeAdd(){
+        function coldAdd(){
            
-		lime_count = lime_count + 1;//adds one to the lime count 
+		cold_count = cold_count + 1;//adds one to the cold count 
+        }
+	
+	function fluAdd(){
+           
+		flu_count = flu_count + 1;//adds one to the flu count 
+        }
+	
+	function allergyAdd(){
+           
+		allergy_count = allergy_count + 1;//adds one to the allergy count 
         }
 
 	function getResults() {  
 		
 		var resultsHTML = document.getElementById("results");
 		
-		var strepProb = strep_count/(strep_count+lime_count);//finds the percentage of strep
+		var coronaProb = corona_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of corona 
 		
-		var limeProb = lime_count/(strep_count+lime_count);//finds the percentage of lime disease  
+		var coldProb = cold_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of cold disease  
 		
-		resultsHTML.innerHTML = "Strep Throat Probability: "+strepProb+"<br>Lime Disease Probability: "+limeProb;
+		var fluProb = flu_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of flu disease  
+
+		var allergyProb = allergy_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of allergy disease  
+
+		
+		resultsHTML.innerHTML = "Corona Probability: "+coronaProb+"<br>Cold Disease Probability: "+coldProb+"<br>Flu Disease Probability: "+fluProb+"<br>Allergy Disease Probability: "+allergyProb;
 	
 	} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.
 	
@@ -179,7 +198,7 @@ img, object{
 <div id="content" class="w3-container">
 	
 	
-	<p>Do you you want to check if you have lime disease or strepthroat? Answer a few short questions to find out!</p>
+	<p>Worried if you have Corona Virus? Answer a few short questions to find out!</p>
 	
 	<a href="#one" class="w3-btn w3-blue w3-round"> Go to page two </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
 	
@@ -269,15 +288,22 @@ img, object{
 	
 <div id="content" class="w3-container">
 		
-	<p> Do you have a sore throat or shortness of breath?</p> <!--Adds a question to the page.-->
+	<p> How common is your cough?</p> <!--Adds a question to the page.-->
 		
 <div class= "w3-bar">
 			
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="strepAdd();location.hash='#two'">Sore Throat</button> 
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#two'">Common in the last 7-25 Days (usually dry)</button> 	
+	<!--Button that represents corona-->
 		
-	<!--Buttons for sore throat and the shortness of breath-->
-		
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#two'">Shortness of Breath</button>
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#two'">Common in less than 14 days</button>
+	<!--Button that represents cold-->
+
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#two'">Common in the last 7-14 days</button>
+	<!--Button that represents flu-->
+
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#two'">Common in the last Several Weeks</button>
+	<!--Button that represents allergy-->
+
 
 	<div>
 	<center><canvas id="bc" width="350" height="250" style= "border :1px solid #000000;"> <!--this code provides a canavas to add things to-->
@@ -336,15 +362,16 @@ img, object{
 	
 <div id="content" class="w3-container">
 		
-		<p> Do you have a fever or rib soreness?</p> <!--changed question to match new website purchase-->
+		<p> Have you had shortness of breath in the last 7-25 days?</p> <!--asks question-->
 			
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="strepAdd();location.hash='#three'">Fever</button> 
-			
-		<!-- Buttons that input the choices relationship to Lime disease or strep-->
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#three'">Sometimes</button> 
+		<!--Button that represents corona-->
+
 		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#three'">Rib Soreness</button>
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="location.hash='#three'">No</button>
 		
-</div> <!-- Buttons that input the choices relationship to Lime disease or strep-->
+	
+</div> 
 	
 </div>	
 	
@@ -360,14 +387,20 @@ img, object{
 	
 <div id="content" class="w3-container">
 		
-		<p>Do you have a rash or a headache?</p> <!--changed question to match new website purchase-->
+		<p>Have you been sneezing recently?</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="strepAdd();location.hash='#four'">Headache</button> 
-			
-		<!-- Buttons that input the choices relationship to Lime disease or strep-->
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#four'">Not in the last  7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#four'">Pretty often in less than 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#four'">Not in the last 7-14 days</button>
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#four'">Pretty often in the last several weeks</button>
+		<!--Button that represents allergy-->
 	
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#four'">Rash</button>
-		
 </div> 
 	
 </div>
@@ -384,19 +417,235 @@ img, object{
 	
 <div id="content" class="w3-container">
 		
+		<p>How common is your nose runny or stuffy?</p> <!--asks questione-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#five'">rare in the last 7-25 days</button><!--corona count--> 
+		<!--Button that represents corona-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#five'">common within the last 14 days</button><!--cold count--> 
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#five'"> sometimes in the last 7-14 days</button><!--flu count--> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#five'">common in the last several weeks</button><!--allergy count--> 
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+	<!--Page 5-->
+		
+<div class="page" id="five"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Has have you experienced sore throat?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#six'">sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#six'">common in less than 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#six'">sometimes in the last 7-14 days</button> 
+		<!--Button that represents flu-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#six'">sometimes in the past several weeks (usually mild)</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 6-->
+		
+<div class="page" id="six"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you experienced fever?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#seven'">Often in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#seven'">short fever period in less than 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#seven'">Common in the last 7-14</button> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#seven'">No</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 7-->
+		
+<div class="page" id="seven"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you felt tired and weak?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#eight'">Sometimes in the last 7-25</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#eight'">sometimes in the last 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#eight'">often in the last 7-14 days</button> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#eight'">sometimes in the past several weeks</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 8-->
+		
+<div class="page" id="eight"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you experience headaches?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#nine'">Sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#nine'">Rarely in the last 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#nine'">Common in the last 7-14</button> 
+		<!--Button that represents flu-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#nine'">Sometimes in the past several weeks(related to sinus pain)</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 9-->
+		
+<div class="page" id="nine"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you experienced body aches and pains?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#ten'">Sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#ten'">common in the last 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#ten'">Common in the last 7-14</button> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#ten'">No</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 10-->
+		
+<div class="page" id="ten"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you had diarrhea?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#eleven'">Sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#eleven'">(only applies to children)Sometimes in the past 7-14 days</button>
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="location.hash='#eleven'">No</button> 
+		<!--Button that doesnt add to the probability but still moves you to the next page-->
+	
+		
+</div> 
+	
+</div>
+		
+<!--Page 11-->
+		
+<div class="page" id="eleven"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
 		<p>Is your neck stiff or do you have bad breath?</p> <!--changed question to match new website purchase-->
 		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="strepAdd();location.hash='#five'">Bad Breath</button> 
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="limeAdd();location.hash='#five'">Stiff Neck</button>
-		
-</div> <!--Yes and no buttons that also inputs the choices relationship to allergy and cold-->
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#twelve'">Bad Breath</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#twelve'">Stiff Neck</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#twelve'">Bad Breath</button> 
+		<!--Button that represents flu-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#twelve'">Stiff Neck</button>
+		<!--Button that represents allergy-->
+	
+</div> 
 	
 </div>
 
-	<!-- Page 5 (result page) -->
+	<!-- Page 12 (result page) -->
 	
-<div class="page" id="five"> <!--Makes another page -->
+<div class="page" id="twelve"> <!--Makes another page -->
 	
 <div id="header" class="w3-container w3-flat-carrot"> 
 	
