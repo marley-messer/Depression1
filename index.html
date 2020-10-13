@@ -113,50 +113,7 @@ resultsHTML.innerHTML = "Corona Probability: "+coronaProb+"<br>Cold Probability:
 		
 	   
   <script>
-	function rectangle() {
-		var c = document.getElementById ("bc"); 
-		var ctx = c.getContext("2d");
-		ctx.moveTo(10,240);
-		ctx.lineTo(10,10);
-		//this code draws the left line
-		ctx.moveTo(10,10);
-		ctx.lineTo(340,10);
-		//this code draws the top line
-		ctx.moveTo(340,10);
-		ctx.lineTo(340,240);
-		//this code draws the right line
-		ctx.moveTo(340,240);
-		ctx.lineTo(10,240);
-		//this code draws the bottom line
-		ctx.stroke();
-		//comes together to draw a rectangle
-	}
-
-	function text() {
-		var bc = document.getElementById ("bc"); 
-		var bc_context = bc.getContext ("2d"); 
-		bc_context.font = '30px Arial' ;
-		bc_context.textBaseLine = 'bottom'; 
-		bc_context.fillText ('Arthur Williamson' ,60,140);
-		//writes my name 
-	} 
-
-
-	function image() {
-		var c= document.getElementById ("bc"); 
-		var ctx=c.getContext ("2d"); 
-		var img= document.getElementById("virus"); 
-		ctx.drawImage (img,10,10,330,230);
-		//puts an image 
-	} 
-
-
-	function clear_canvas() {
-		var bc = document.getElementById ("bc"); 
-		var bc_context = bc.getContext ("2d"); 
-		bc_context.clearRect(1, 1, 350, 250); 
-		//clears the canvas 
-	} 
+	
 </script>
 
 
