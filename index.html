@@ -1,14 +1,11 @@
 <!DOCTYPE html> 
 
-<html> 
-<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
- 
-THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
+<html>  
  
 Authors in chronological order of contribution:
+Kurt Kroenke
 Arthur Williamson 
-Arw3595
+Angela Owe
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -18,10 +15,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-The goal of this code is to test whether or not the user has strep throat or lime disease. 
+Screen for depression in the individual taking the questionnaire.
  
 Known Issues:
-blah, blah, blah, blah
+problems with results
 -->
 
    <head> 
@@ -30,7 +27,7 @@ blah, blah, blah, blah
 	
    <head> 
      
-	   <title>Hello World</title>  
+	   <title>PHQ9</title>  
     
 	   <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -58,51 +55,45 @@ blah, blah, blah, blah
 
 <script>
        
-	var corona_count = 0;//defines the function and represents corona count
+	var not_at_all_count = 0;//defines the function and represents not all day answer choice count
         
-	var cold_count = 0;//defines the function and represents cold disease count
+	var several_days_count = 0;//defines the function and represents several days answer choice count
 	
-	var flu_count = 0;//defines the function and represents flu disease count
+	var more_than_half_the_days_count = 0;//defines the function and represents more than half the days answer choice count
 	
-	var allergy_count = 0;//defines the function and represents allergy disease count
+	var nearly_every_day_count = 0;//defines the function and represents nearly every day answer choice count
+	
+	var depression = 0;//defines the function and represents depression score count
 
 
-        function coronaAdd(){
+        function notAdd(){
             
-		corona_count = corona_count + 1;//adds one to the corona count
-		//alert(allergy_count);
-
+		not_at_all_count = depression + 0;//adds zero to the depression score count
         }
 
-        function coldAdd(){
+        function sevAdd(){
            
-		cold_count = cold_count + 1;//adds one to the cold count 
+		several_days_count = depression + 1;//adds one to the depression score count 
         }
 	
-	function fluAdd(){
+	function moreAdd(){
            
-		flu_count = flu_count + 1;//adds one to the flu count 
+		more_than_half_the_days_count = depression + 2;//adds two to the depression score count 
         }
 	
-	function allergyAdd(){
+	function nearlyAdd(){
            
-		allergy_count = allergy_count + 1;//adds one to the allergy count 
+		nearly_every_day_count = depression + 3;//adds three to the depression score count 
         }
 
 	function getResults() {  
 		
 		var resultsHTML = document.getElementById("results");
 		
-		var coronaProb = corona_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of corona 
-		
-		var coldProb = cold_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of cold disease  
-		
-		var fluProb = flu_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of flu disease  
-
-		var allergyProb = allergy_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of allergy disease  
+		var DepressionSeverity = depression;//finds the severity of depression 
 
 		
-resultsHTML.innerHTML = "Depression Probability: "+coronaProb+"<br>Probability: "+coldProb+"<br>Probability: "+fluProb+"<br>Probability: "+allergyProb;
+resultsHTML.innerHTML = "Depression Severity: "+depression+ " <br> "score of 0-4 indicates minimal or none; monitor, may not require treatment" <br> "score of 5-9 indicates mild; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "scpre of 10-14 indicates moderate; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "score of 15-19 indicates moderately severe; warrants active treatment with psychotherapy, medications, or combination" <br> " score of 20-27 indicates severe; warrants active tratment with psychotherapy, medicaions, or combination"
 	
 	} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.
 	
@@ -151,7 +142,7 @@ img, object{
 
 <div id="header" class="w3-container w3-flat-carrot">
 	
-	<h1>Depression Diagnostic</h1> <!--title for the page-->
+	<h1>Patient Health Questionnaire 9</h1> <!--title for the page-->
 
 </div>
 	
@@ -160,7 +151,7 @@ img, object{
 	
 	<p>Over the last 2 weeks, how often have you been bothered by any of the following problems?</p>
 	
-	<a href="#one" class="w3-btn w3-blue w3-round"> Go to page two </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
+	<a href="#one" class="w3-btn w3-blue w3-round"> Next </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
 	
 </div>
 	
@@ -217,7 +208,7 @@ img, object{
 	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	<p>THIS CODE IS BASED OFF KURT KROENKE'S PATIENT HEALTH QUESTIONNAIRE 9 AND IS VALID FOR MEDICAL USE
 	
     
 <div id="content" class="w3-container">
@@ -242,24 +233,23 @@ img, object{
 		
 <div class= "w3-bar">
 			
-	<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#two'">Not at all</button> 	
-	<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#two'">Not at all</button> 	
+	<!--Button that represents not at all-->
 		
-	<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#two'">Several days</button>
-	<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#two'">Several days</button>
+	<!--Button that represents several days-->
 
-	<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#two'">More than half the days</button>
-	<!--Button that represents flu-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#two'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-	<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#two'">Nearly every day</button>
-	<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#two'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 
 
 	<div>
 	
 </div>
 	
-<img id="virus" src="https://cdn.hswstatic.com/gif/corona-virus-3D.jpg" alt="The Scream" width="0" height="0"><!--image-->
 	
 <style>
 		.btn-group .button {
@@ -308,12 +298,17 @@ img, object{
 		
 		<p> Feeling down, depressed, or hopeless</p> <!--asks question-->
 			
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#three'">Not at all</button> 
-		<!--Button that represents corona-->
-		<button class="w3-button w3-blue w3-round" onclick="location.hash='#three'">Several days</button>
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#three'">More than half the days</button> 
-		<!--Button that represents corona-->
-		<button class="w3-button w3-blue w3-round" onclick="location.hash='#three'">Nearly every day</button>
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#three'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#three'">Several days</button>
+	<!--Button that represents several days-->
+
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#three'">More than half the days</button>
+	<!--Button that represents more than half the days-->
+
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#three'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -333,17 +328,17 @@ img, object{
 		
 		<p>Trouble falling/staying asleep, sleeping too much</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#four'">Not at all</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#four'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#four'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#four'">Several days</button>
-		<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#four'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#four'">More than half the days</button>
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#four'">Nearly every day</button>
-		<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#four'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -363,17 +358,17 @@ img, object{
 		
 		<p>Feeling tired or having little energy</p> <!--asks questione-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#five'">Not at all</button><!--corona count--> 
-		<!--Button that represents corona-->
-	
-		<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#five'">Several days</button><!--cold count--> 
-		<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#five'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#five'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#five'">More than half the days</button><!--flu count--> 
-		<!--Button that represents flu-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#five'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#five'">Nearly every day</button><!--allergy count--> 
-		<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#five'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -393,17 +388,17 @@ img, object{
 		
 		<p>Poor appetite or overeating</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#six'">Not at all</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#six'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#six'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#six'">Several days</button>
-		<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#six'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#six'">More than half the days</button> 
-		<!--Button that represents flu-->
-	
-		<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#six'">Nearly every day</button>
-		<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#six'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -423,17 +418,17 @@ img, object{
 		
 		<p>Feeling bad about yourself or that you are a failure or have let yourself or your family down</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#seven'">Not at all</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#seven'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#seven'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#seven'">Several days</button>
-		<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#seven'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#seven'">More than half the days</button> 
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#seven'">Nearly every day</button>
-		<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#seven'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -453,17 +448,17 @@ img, object{
 		
 		<p>Trouble concentrating on things, such as reading the newspaper or watching television</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#eight'">Not at all</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#eight'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#eight'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#eight'">Several days</button>
-		<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#eight'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#eight'">More than half the days</button> 
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#eight'">Nearly every day</button>
-		<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#eight'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -483,17 +478,17 @@ img, object{
 		
 		<p>Moving or speaking so slowly that other people could have noticed. Or the opposite; being so fidgety or restless that you have been moving around a lot more than usual</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#nine'">Not at all</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#nine'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#nine'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#nine'">Several days</button>
-		<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#nine'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#nine'">More than half the days</button> 
-		<!--Button that represents flu-->
-	
-		<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#nine'">Nearly every day</button>
-		<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#nine'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -513,17 +508,17 @@ img, object{
 		
 		<p>Thoughts that you would be better off dead or of hurting yourself in some way</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#ten'">Not at all</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" onclick="notAdd();location.hash='#ten'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" onclick="sevdAdd();location.hash='#ten'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="coldAdd();location.hash='#ten'">Several days</button>
-		<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-round" onclick="moreAdd();location.hash='#ten'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#ten'">More than half the days</button> 
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-round" onclick="allergyAdd();location.hash='#ten'">Nearly every day</button>
-		<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-round" onclick="nearlyAdd();location.hash='#ten'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 </div> 
 	
@@ -543,17 +538,17 @@ img, object{
 		
 		<p> If you checked off any problem on this questionnaire so far, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?</p> <!--asks question-->
 		
-		<button class="w3-button w3-blue w3-round" onclick="coronaAdd();location.hash='#eleven'">Not difficult at all</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-round" location.hash='#eleven'">Not at all</button> 	
+	<!--Button that represents not at all-->
+		
+	<button class="w3-button w3-blue w3-round" location.hash='#eleven'">Several days</button>
+	<!--Button that represents several days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="fluAdd();location.hash='#eleven'">Somewhat difficult</button>
-		<!--Button that represents flu-->
+	<button class="w3-button w3-blue w3-round" location.hash='#eleven'">More than half the days</button>
+	<!--Button that represents more than half the days-->
 
-		<button class="w3-button w3-blue w3-round" onclick="location.hash='#eleven'">Very difficult</button> 
-		<!--Button that doesnt add to the probability but still moves you to the next page-->
-	
-	     	<button class="w3-button w3-blue w3-round" onclick="location.hash='#eleven'">Extremely difficult</button> 
-		<!--Button that doesnt add to the probability but still moves you to the next page-->
+	<button class="w3-button w3-blue w3-round" location.hash='#eleven'">Nearly every day</button>
+	<!--Button that represents nearly every day-->
 	
 		
 </div> 
@@ -571,27 +566,7 @@ img, object{
 	
 <div id="content" class="w3-container">
 	
-			<!--<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-  var greeting;
-  var time = new Date().getHours();
-  if (coronaProb > coldProb+fluProb+allergyProb) {
-    greeting = "you have corona";
-  } else if (coldProb > coronaProb+fluProb+allergyProb) {
-    greeting = "you have a cold";
-  } else if (fluProb > coronaProb+fluProb+coldProb) {
-    greeting = "you have the flu";
-  }else if (allergyProb > coronaProb+coldProb+allergyProb) {
-    greeting = "you have allergies";
-  }
-  document.getElementById("demo").innerHTML = greeting;
-}
-</script>
-	   -->
+			<button onclick="myFunction()">Try it</button>
 	
 	<p>Click to see your results.</p>
 		
