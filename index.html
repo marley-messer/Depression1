@@ -1,7 +1,9 @@
 <!DOCTYPE html> 
-
 <html>  
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
  
+THIS CODE CAN BE USED TO DIAGNOSE DEPRESSION.
+
 Authors in chronological order of contribution:
 Kurt Kroenke
 Arthur Williamson 
@@ -19,99 +21,54 @@ Screen for depression in the individual taking the questionnaire.
  
 Known Issues:
 problems with results
--->
-
-   <head> 
-      
-	  
+-->       
 	
-   <head> 
-     
-	   <title>PHQ9</title>  
-    
-	   <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-	   <meta name="apple-mobile-web-app-capable" content="yes">
-    
-	   <link rel="stylesheet" href="w3.css">
-   
-	   <link rel="stylesheet" href="w3-colors-flat.css">
-  
-	   </head> 
-<script>
-	   
+<head> 
+   <title>PHQ9</title>  
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="stylesheet" href="w3.css">
+   <link rel="stylesheet" href="w3-colors-flat.css"
+</head> 
+		
+<script>	   
 // The following code lets you know when the file was last modified.
-// This will help you know if you are looking at the new version of the file or if there is a delay on GitHub.
-       
-	var docMod = document.lastModified;
-       
+// This will help you know if you are looking at the new version of the file or if there is a delay on GitHub.      
+	var docMod = document.lastModified;       
 	alert("This file last modified  " + docMod);
-       
-	console.log("This file last modified  " + docMod);
-	
+	console.log("This file last modified  " + docMod);	
 //If you find the alert box annoying, comment out that line and timestamp will still show up in the debugging console
-
 </script>
 
-<script>
-       
-	var not_at_all_count = 0;//defines the function and represents not all day answer choice count
-        
-	var several_days_count = 0;//defines the function and represents several days answer choice count
-	
-	var more_than_half_the_days_count = 0;//defines the function and represents more than half the days answer choice count
-	
-	var nearly_every_day_count = 0;//defines the function and represents nearly every day answer choice count
-
-        function notAdd(){
-            
-		not_at_all_count = not_at_all_count + 1;//adds zero to the depression score count
-        }
-
-        function sevAdd(){
-           
-		several_days_count = several_days_count + 1;//adds one to the depression score count 
-        }
-	
-	function moreAdd(){
-           
-		more_than_half_the_days_count = more_than_half_the_days_count + 1;//adds two to the depression score count 
-        }
-	
-	function nearlyAdd(){
-           
-		nearly_every_day_count = nearly_every_day_count + 1;//adds three to the depression score count 
-        }
-
-	function getResults() {  
 		
+<script>
+	var not_at_all_count = 0;//defines the function and represents not all day answer choice count
+	var several_days_count = 0;//defines the function and represents several days answer choice count
+	var more_than_half_the_days_count = 0;//defines the function and represents more than half the days answer choice count
+	var nearly_every_day_count = 0;//defines the function and represents nearly every day answer choice count
+        function notAdd(){
+		not_at_all_count = not_at_all_count + 1;//adds one to the not at all answer choice count
+        }
+        function sevAdd(){  
+		several_days_count = several_days_count + 1;//adds one to the several days answer choice count 
+        }
+	function moreAdd(){
+		more_than_half_the_days_count = more_than_half_the_days_count + 1;//adds one to the more than half the days answer choice count 
+        }
+	function nearlyAdd(){  
+		nearly_every_day_count = nearly_every_day_count + 1;//adds one to the nearly every day answer choice count 
+        }
+	function getResults() {  	
 		var DepressionSeverity = (not_at_all_count*0)+(several_days_count*1)+(more_than_half_the_days_count*2)+(nearly_every_day_count*3);//finds the severity of depression 
 		var resultsHTML = document.getElementById("results");
-		resultsHTML.innerHTML = "Depression Severity = " + DepressionSeverity + " <br> "score of 0-4 indicates minimal or none; monitor, may not require treatment" <br> "score of 5-9 indicates mild; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "scpre of 10-14 indicates moderate; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "score of 15-19 indicates moderately severe; warrants active treatment with psychotherapy, medications, or combination" <br> " score of 20-27 indicates severe; warrants active tratment with psychotherapy, medicaions, or combination"
+		resultText.innerHTML = "Depression Severity = " + DepressionSeverity + " <br> "score of 0-4 indicates minimal or none; monitor, may not require treatment" <br> "score of 5-9 indicates mild; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "scpre of 10-14 indicates moderate; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "score of 15-19 indicates moderately severe; warrants active treatment with psychotherapy, medications, or combination" <br> " score of 20-27 indicates severe; warrants active tratment with psychotherapy, medicaions, or combination"
 	} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.
-	
-  </script>
+ </script>
 		
-	
-	   
-		
-	   
-  <script>
-	
-</script>
-
-
 <style>	
-img, object{
-      	max-height:90%;
-        	max-width:90%;  /* changes the size of the picture based on the screen */
-        	}
-
-	
 .body {
      margin: 0em;
 }
-
 .page {
     width: 100vw;
     height: 100vh;
@@ -122,456 +79,222 @@ img, object{
     z-index: 0;
     background-color: hsl(0,0%,100%);
 }
-
   .page:target {
     left: 0vw;
     z-index: 1;
 }
 </style>
 	
-	   		<!--Title page-->
-
+<!--Title page-->
 <body>
-
 <div id="header" class="w3-container w3-flat-carrot">
-	
 	<h1>Patient Health Questionnaire 9</h1> <!--title for the page-->
-
-</div>
-	
+</div>	
 <div id="content" class="w3-container">
-	
-	
 	<p>Over the last 2 weeks, how often have you been bothered by any of the following problems?</p>
-	
-	<a href="#one" class="w3-btn w3-blue w3-round"> Next </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
-	
-</div>
-	
-	<html>
-	
-	<head>
-	
-	<style>
-	
-	* {
-  	
-	box-sizing: border-box;
-	
-	}
+	<a href="#one" class="w3-btn w3-blue w3-round"> Next </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->	
+	<img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/326/326769/an-infographic-showing-the-commons-symptoms-of-depression.jpg" alt="image" style="width:50%"> <!--Adds a picture and defines the size. Also added alt to show that an image belongs there when its not loading.-->
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p> 	
+	<p>THIS CODE IS BASED OFF KURT KROENKE'S PATIENT HEALTH QUESTIONNAIRE 9 AND IS VALID FOR MEDICAL USE	
 
-	.column {
-	
-	float: left;
-	 
-	width: 33.33%;
-	 
-	padding: 5px;
-	
-	}
-
-	/* Clearfix (clear floats) */
-	
-	.row::after {
-  	
-	content: "";
-  	
-	clear: both;
-  	
-	display: table;
-	
-	}
-	
-	</style>
-	
-	</head>
-	
-	<body>
-
-	
-<div class="row">
- 
-<div class="column">
-    
-	<img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/326/326769/an-infographic-showing-the-commons-symptoms-of-depression.jpg" 
-	 
-	alt="image" style="width:50%"> <!--Adds a picture and defines the size. Also added alt to show that an image belongs there when its not loading.-->
-
-</div>
-	
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-	<p>THIS CODE IS BASED OFF KURT KROENKE'S PATIENT HEALTH QUESTIONNAIRE 9 AND IS VALID FOR MEDICAL USE
-	
-    
-<div id="content" class="w3-container">
-    	
-</div>
-
-</div> 
-
-		<!--Page 1-->
-
+<!--Page 1-->
 <div class="page" id="one"> <!--Makes another page -->
-	
-<div class="w3-container w3-flat-carrot">
-		
-	<h1>Question 1</h1><!--Title of the page-->
-	
+	<div id="header" class="w3-container w3-flat-carrot">	
+		<h1>Question 1</h1><!--Title of the page-->
+	</div>
+	<div id="content" class="w3-container">
+		<p>  Little interest or pleasure in doing things</p> <!--Adds a question to the page.-->
+		<a href="#two" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#two" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#two" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#two" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->
+	</div>
 </div>
 	
-<div id="content" class="w3-container">
-		
-	<p>  Little interest or pleasure in doing things</p> <!--Adds a question to the page.-->
-		
-<div class= "w3-bar">
-			
-	<a href="#two" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#two" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#two" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#two" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->
-
-
-	<div>
-	
-</div>
-	
-	
-<style>
-		.btn-group .button {
-		  background-color: #4169e1; /* blue */
-		  border: 1px solid white;
-		  color: white;
-		  padding: 15px 32px;/*created size of button*/
-		  text-align: center;/*centers button text*/
-		  text-decoration: none;
-		  display: inline-block;
-		  font-size: 16px;/*font size*/
-		  cursor: pointer;
-		  float: left;/*brings the buttons to the left*/
-		  /*this code serves to give the button its color,border,alignment,size,font size*/
-		}
-
-		.btn-group .button:not(:last-child) {
-		  border-right: none; /* Prevent double borders */
-		}
-
-		.btn-group .button:hover { /*adds hover feature*/
-		  background-color: #0a21cc;/*changes color to dark blue when hovered*/
-		}
-</style>
-	
-	
-	</div> 
-
-</div> 	
-	
-</div> 
-	
-</div>
-	
-	<!--Page 2-->
-	
+<!--Page 2-->	
 <div class="page" id="two"><!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-		
-	<h1>Question 2</h1><!--Title of the page-->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1><!--Title of the page-->
+	</div>
+	<div id="content" class="w3-container">
 		<p> Feeling down, depressed, or hopeless</p> <!--asks question-->
-	<a href="#three" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#three" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#three" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#three" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->		
-	
-</div> 
-	
+		<a href="#three" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->	
+		<a href="#three" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#three" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#three" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->		
+	</div> 
 </div>	
 	
-		<!--Page 3-->
-	
+<!--Page 3-->	
 <div class="page" id="three"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 3</h1>
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	<div id="content" class="w3-container">	
 		<p>Trouble falling/staying asleep, sleeping too much</p> <!--asks question-->
-		
-	<a href="#four" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#four" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#four" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#four" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-</div> 
-	
+		<a href="#four" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#four" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#four" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#four" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 
-	<!--Page 4-->
-	
+<!--Page 4-->	
 <div class="page" id="four"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 4</h1> <!--Changed title to question 4 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1> <!--Changed title to question 4 -->
+	</div>
+	<div id="content" class="w3-container">	
 		<p>Feeling tired or having little energy</p> <!--asks questione-->
-		
-	<a href="#five" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#five" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#five" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#five" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-</div> 
-	
+		<a href="#five" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#five" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#five" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#five" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-	<!--Page 5-->
-		
+<!--Page 5-->		
 <div class="page" id="five"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 5</h1> <!--Changed title to question 5 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1> <!--Changed title to question 5 -->
+	</div>
+	<div id="content" class="w3-container">	
 		<p>Poor appetite or overeating</p> <!--asks question-->
-		
-	<a href="#six" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#six" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#six" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#six" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-</div> 
-	
+		<a href="#six" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#six" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#six" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#six" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
 <!--Page 6-->
-		
 <div class="page" id="six"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 6</h1> <!--Changed title to question 6 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1> <!--Changed title to question 6 -->
+	</div>
+	<div id="content" class="w3-container">	
 		<p>Feeling bad about yourself or that you are a failure or have let yourself or your family down</p> <!--asks question-->
-		
-	<a href="#seven" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#seven" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#seven" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#seven" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-</div> 
-	
+		<a href="#seven" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#seven" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#seven" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#seven" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-<!--Page 7-->
-		
-<div class="page" id="seven"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 7</h1> <!--Changed title to question 7 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+<!--Page 7-->		
+<div class="page" id="seven"> <!--Makes another page -->	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 7</h1> <!--Changed title to question 7 -->
+	</div>
+	<div id="content" class="w3-container">	
 		<p>Trouble concentrating on things, such as reading the newspaper or watching television</p> <!--asks question-->
-		
-	<a href="#eight" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#eight" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#eight" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#eight" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-</div> 
-	
+		<a href="#eight" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#eight" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#eight" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#eight" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
 <!--Page 8-->
-		
 <div class="page" id="eight"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 8</h1> <!--Changed title to question 8 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 8</h1> <!--Changed title to question 8 -->
+	</div>
+	<div id="content" class="w3-container">	
 		<p>Moving or speaking so slowly that other people could have noticed. Or the opposite; being so fidgety or restless that you have been moving around a lot more than usual</p> <!--asks question-->
-		
-	<a href="#nine" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#nine" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#nine" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#nine" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-</div> 
-	
+		<a href="#nine" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#nine" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#nine" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#nine" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-<!--Page 9-->
-		
+<!--Page 9-->	
 <div class="page" id="nine"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 9</h1> <!--Changed title to question 9 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 9</h1> <!--Changed title to question 9 -->
+	</div>
+	<div id="content" class="w3-container">	
 		<p>Thoughts that you would be better off dead or of hurting yourself in some way</p> <!--asks question-->
-		
-	<a href="#ten" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#ten" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#ten" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#ten" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-</div> 
-	
+		<a href="#ten" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#ten" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#ten" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#ten" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-<!--Page 10-->
-		
+<!--Page 10-->	
 <div class="page" id="ten"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 10</h1> <!--Changed title to question 10 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 10</h1> <!--Changed title to question 10 -->
+	</div>
+	<div id="content" class="w3-container">	
 		<p> If you checked off any problem on this questionnaire so far, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?</p> <!--asks question-->
-		
-	<a href="#eleven" class="w3-btn w3-blue w3-round">Not at all</button> 	
-	<!--Button that represents not at all-->
-		
-	<a href="#eleven" class="w3-btn w3-blue w3-round">Several days</button>
-	<!--Button that represents several days-->
-
-	<a href="#eleven" class="w3-btn w3-blue w3-round">More than half the days</button>
-	<!--Button that represents more than half the days-->
-
-	<a href="#eleven" class="w3-btn w3-blue w3-round">Nearly every day</button>
-	<!--Button that represents nearly every day-->	
-	
-		
-</div> 
-	
+		<a href="#eleven" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#eleven" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#eleven" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#eleven" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->
+	</div> 	
 </div>
 
-	<!-- Page 11 (result ready page) -->
-	
+<!-- Page 11 (result ready page) -->	
 <div class="page" id="eleven"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot"> 
-	
+	<div id="header" class="w3-container w3-flat-carrot"> 
 		<h1>Finished!</h1> <!--Changed the title of the page to results-->
+	</div>
+	<div id="content" class="w3-container">
+		<p>Click to see your results.</p>
+		<a href="#last" class="w3-button w3-blue w3-hover-border-color" onclick="DepressionSeverity();">Get Results</a> <!--This adds a button that says results and displays the results upon click.-->		
+	</div>
 </div>
-	
-<div id="content" class="w3-container">
-	
-	<p>Click to see your results.</p>
-		
-		<a href="#last" class="w3-button w3-blue w3-hover-border-color" onclick="DepressionSeverity();">Get Results</button> <!--This adds a button that says results and displays the results upon click.-->
-			
-</div>
-	
-</div>
-		<!-- This produces the result page to show the severity -->
+
+<!-- This produces the result page to show the severity -->
 <div class="page" id="last">
 	<!-- This produces the results title -->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Depression Severity</h1>
 	</div>
-	<!-- This produces the probabilities -->
+	<!-- This produces the results -->
 	<div id="content" class="w3-container">
 		<p id="results">DepressionSeverity</p> 
 		<p>Be Healthy!</p>
@@ -579,11 +302,7 @@ img, object{
 </div>
 	
 <footer class="w3-bottom w3-container w3-flat-carrot">
-	
 	<p>DIY!</p>
-
-		</footer>
-	   
-   </body>
-
-		</html>
+</footer>
+</body>		
+</html>
