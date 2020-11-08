@@ -20,7 +20,7 @@ Brief Description of Goal of Code:
 Screen for depression in the individual taking the questionnaire.
  
 Known Issues:
-problems with results
+results are not calculates properly
 -->       
 	
 <head> 
@@ -59,9 +59,10 @@ problems with results
 		nearly_every_day_count = nearly_every_day_count + 1;//adds one to the nearly every day answer choice count 
         }
 	function getResults() {  	
-		var DepressionSeverity = (not_at_all_count*0)+(several_days_count*1)+(more_than_half_the_days_count*2)+(nearly_every_day_count*3);//finds the severity of depression 
 		var resultsHTML = document.getElementById("results");
-		resultText.innerHTML = "Depression Severity = " + DepressionSeverity + " <br> "score of 0-4 indicates minimal or none; monitor, may not require treatment" <br> "score of 5-9 indicates mild; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "scpre of 10-14 indicates moderate; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment" <br> "score of 15-19 indicates moderately severe; warrants active treatment with psychotherapy, medications, or combination" <br> " score of 20-27 indicates severe; warrants active tratment with psychotherapy, medicaions, or combination"
+		var DepressionSeverity = (not_at_all_count*0)+(several_days_count*1)+(more_than_half_the_days_count*2)+(nearly_every_day_count*3);//finds the severity of depression 
+	
+	resultsHTML.innerHTML = "Depression Severity = " +DepressionSeverity+ "<br>score of 0-4 indicates minimal or none; monitor, may not require treatment<br>score of 5-9 indicates mild; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment<br>score of 10-14 indicates moderate; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment<br>score of 15-19 indicates moderately severe; warrants active treatment with psychotherapy, medications, or combination<br>score of 20-27 indicates severe; warrants active tratment with psychotherapy, medicaions, or combination"
 	} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.
  </script>
 		
