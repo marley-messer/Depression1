@@ -2,7 +2,7 @@
 <html>  
 <!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
  
-THIS CODE CAN BE USED TO DIAGNOSE DEPRESSION.
+THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
 
 Authors in chronological order of contribution:
 Kurt Kroenke
@@ -20,7 +20,7 @@ Brief Description of Goal of Code:
 Screen for depression in the individual taking the questionnaire.
  
 Known Issues:
-results are not calculates properly
+results are not calculated properly or even displayed properly
 -->       
 	
 <head> 
@@ -94,9 +94,33 @@ results are not calculates properly
 <div id="content" class="w3-container">
 	<p>Over the last 2 weeks, how often have you been bothered by any of the following problems?</p>
 	<a href="#one" class="w3-btn w3-blue w3-round"> Next </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->	
-	<img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/326/326769/an-infographic-showing-the-commons-symptoms-of-depression.jpg" alt="image" style="width:50%"> <!--Adds a picture and defines the size. Also added alt to show that an image belongs there when its not loading.-->
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p> 	
-	<p>THIS CODE IS BASED OFF KURT KROENKE'S PATIENT HEALTH QUESTIONNAIRE 9 AND IS VALID FOR MEDICAL USE	
+</div>
+	<html>
+	<head>
+	<style>
+	* {
+	box-sizing: border-box;
+	}
+	.column {
+	float: left;
+	width: 33.33%;
+	padding: 5px;
+	}
+	/* Clearfix (clear floats) */
+	.row::after {
+	content: "";
+	clear: both;
+	display: table;
+	}
+	</style>
+	</head>
+	<body>
+<div class="row"> 
+<div class="column"
+	<img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/326/326769/an-infographic-showing-the-commons-symptoms-of-depression.jpg" alt="image" style="width:50%"> <!--Adds a picture and defines the size. Also added alt to show that an image belongs there when its not loading.-->	
+</div>
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
 <!--Page 1-->
 <div class="page" id="one"> <!--Makes another page -->
@@ -285,7 +309,7 @@ results are not calculates properly
 	</div>
 	<div id="content" class="w3-container">
 		<p>Click to see your results.</p>
-		<a href="#last" class="w3-button w3-blue w3-hover-border-color" onclick="DepressionSeverity();">Get Results</a> <!--This adds a button that says results and displays the results upon click.-->		
+		<a href="#last" class="w3-button w3-blue w3-hover-border-color" onclick="getResults();">Get Results</a> <!--This adds a button that says results and displays the results upon click.-->		
 	</div>
 </div>
 
